@@ -45,7 +45,7 @@ function get_unique_categorie(){
                         cursor: pointer;
                         border-radius: 5px; /* Coins arrondis */
                       '> <i class='fa-solid fa-cart-shopping'></i> J'achète</a>
-                      <a href='#' class='btn btn-secondary' style='
+                      <a href='product_details.php?product_id=$product_id' class='btn btn-secondary' style='
                         background-color: #ff6600; /* Couleur de fond orange */
                         border: none;
                         color: white; /* Couleur du texte blanc */
@@ -100,7 +100,7 @@ function getproducts(){
                     cursor: pointer;
                     border-radius: 5px; /* Coins arrondis */
                   '> <i class='fa-solid fa-cart-shopping'></i> J'achète</a>
-                  <a href='#' class='btn btn-secondary' style='
+                  <a href='product_details.php?product_id=$product_id' class='btn btn-secondary' style='
                     background-color: #ff6600; /* Couleur de fond orange */
                     border: none;
                     color: white; /* Couleur du texte blanc */
@@ -128,7 +128,7 @@ function getcategorie(){
             $cat_id=$row_data['categorie_id'];
             $cat_title = $row_data['categorie_title'];
             echo "<li class='nav-item'>
-                    <a href='index.php?categorie=$cat_id' class='nav-link text-dark' style='font-size: 16px;'>$cat_title</a>
+                    <a href='display_allprod.php?categorie=$cat_id' class='nav-link text-dark' style='font-size: 16px;'>$cat_title</a>
                   </li>";
         }
 }
@@ -173,7 +173,7 @@ function product_recherche(){
                         cursor: pointer;
                         border-radius: 5px; /* Coins arrondis */
                       '> <i class='fa-solid fa-cart-shopping'></i> J'achète</a>
-                      <a href='#' class='btn btn-secondary' style='
+                      <a href='product_details.php?product_id=$product_id' class='btn btn-secondary' style='
                         background-color: #ff6600; /* Couleur de fond orange */
                         border: none;
                         color: white; /* Couleur du texte blanc */
@@ -192,7 +192,7 @@ function product_recherche(){
       }
   }
 }
-// display product per page
+
 function displayProductsPerPage($conn, $limit = 6) {
   // Calculate total number of products
   $total_products_query = "SELECT COUNT(*) as total FROM `produit`";
@@ -212,46 +212,49 @@ function displayProductsPerPage($conn, $limit = 6) {
 
   // Display products
   while ($row = mysqli_fetch_assoc($products_result)) {
-    $product_title = $row['nom_produit'];
-    $product_description = $row['description_produit'];
-    $product_image1 = $row['image_produit1'];
-      // Display each product
+      // Extract product details
+      $product_id=$row['id_produit'];
+      $product_title = $row['nom_produit'];
+      $product_description = $row['description_produit'];
+      $product_image1 = $row['image_produit1'];
+
+      // Display product HTML
       echo "<div class='col-md-4 mb-2'>
-      <div class='card'>
-        <img src='espace admin/image_prod/$product_image1' class='card-img-top'
-        alt='$product_title' style='height: 200px;'>
-        <div class='card-body'>
-          <h5 class='card-title'>$product_title</h5>
-          <p class='card-text'>$product_description</p>
-          <a href='#' class='btn btn-info' style='
-            background-color: #4CAF50; /* Couleur de fond verte */
-            border: none;
-            color: white; /* Couleur du texte blanc */
-            padding: 10px 20px; /* Espacement interne */
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-            border-radius: 5px; /* Coins arrondis */
-          '> <i class='fa-solid fa-cart-shopping'></i> J'achète</a>
-          <a href='#' class='btn btn-secondary' style='
-            background-color: #ff6600; /* Couleur de fond orange */
-            border: none;
-            color: white; /* Couleur du texte blanc */
-            padding: 10px 20px; /* Espacement interne */
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-            border-radius: 5px; /* Coins arrondis */
-          '>Voir plus</a>
-        </div>
-      </div>
-    </div>";
+                <div class='card'>
+                  <img src='espace admin/image_prod/$product_image1' class='card-img-top'
+                  alt='$product_title' style='height: 200px;'>
+                  <div class='card-body'>
+                    <h5 class='card-title'>$product_title</h5>
+                    <p class='card-text'>$product_description</p>
+                    <a href='#' class='btn btn-info' style='
+                      background-color: #4CAF50; /* Couleur de fond verte */
+                      border: none;
+                      color: white; /* Couleur du texte blanc */
+                      padding: 10px 20px; /* Espacement interne */
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      transition-duration: 0.4s;
+                      cursor: pointer;
+                      border-radius: 5px; /* Coins arrondis */
+                    '> <i class='fa-solid fa-cart-shopping'></i> J'achète</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-secondary' style='
+                      background-color: #ff6600; /* Couleur de fond orange */
+                      border: none;
+                      color: white; /* Couleur du texte blanc */
+                      padding: 10px 20px; /* Espacement interne */
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                      transition-duration: 0.4s;
+                      cursor: pointer;
+                      border-radius: 5px; /* Coins arrondis */
+                    '>Voir plus</a>
+                  </div>
+                </div>
+              </div>";
   }
 
   // Generate navigation links
@@ -264,10 +267,7 @@ for ($i = 1; $i <= $total_pages; $i++) {
 }
 echo "</div>";
 
-
-
 }
-
 
 
 ?>

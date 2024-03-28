@@ -22,6 +22,9 @@ ini_set('display_errors', 1);
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH
      " crossorigin="anonymous">
      <link rel="stylesheet" href="style1.css">
+     <link rel="stylesheet" href="product_details.css">
+
+
 
     
 <!--Font awesom link !-->
@@ -29,8 +32,7 @@ ini_set('display_errors', 1);
  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
   crossorigin="anonymous"
    referrerpolicy="no-referrer" />
-  
-
+   <link rel="stylesheet" href="product_details.css">
 </head>
 
 <body>
@@ -78,54 +80,77 @@ ini_set('display_errors', 1);
             </div>
         </nav>
     </div>
-
-    <div class="welcome-section" style="background-image: url(welcome.png);">
-        <h1>Bienvenue chez Butterfly</h1>
-        <p>Découvrez notre sélection de fleurs fraîches et de bouquets uniques pour toutes les occasions.</p>
-        <a href="#" class="btn btn-primary">Shop now</a>
-    </div>
-    <div class="prodrech">
-    <h3>Produit</h3>
-    <p>Communications is at the heart of e-commerce and cummunity</p>
-    <div class="container mx-auto text-center">
-        <form class="d-flex form" role="search" method="get" action="recherche_produit.php">
-            <input class="form-control me-2" type="rechercher" placeholder="Rechercher" aria-label="Rechercher" name="rechercher">
-            <input class="btnsubmit" type="submit" value="Rechercher" name="recherche_data_prod"></input>
-        </form>
-    </div>
 </div>
 </div>
-<div class="row px-3">
-  <div class="col-md-2">
-    <!-- Sidenav -->
-    <ul class="navbar-nav me-auto text-center" style="background-color: #f8f9fa; padding: 10px; border-radius: 10px;">
-        <li class="nav-item">
-            <a href="#" class="nav-link text-dark"><h4 style="color: #ff6600; font-weight: bold;">Catégories</h4></a>
-        </li>
-        <?php
-        getcategorie();
-        ?>
-    </ul>
-</div>
-
-  
-  <div class="col-md-10">
-    <!-- Products -->
+<?php
+if(isset($_GET['product_id'])) {
+    $product_id = $_GET['product_id'];
+    $select_query = "SELECT * FROM `produit` WHERE id_produit = $product_id";
+    $result_query = mysqli_query($conn, $select_query);
+    $row = mysqli_fetch_assoc($result_query);
+}
+?>
+<div class="container py-5">
     <div class="row">
-      <?php
-      if(isset($_GET['categorie'])){
-        get_unique_categorie();
-    } else {
-        getproducts();
-    }
-      ?>
-     
+        <!-- Carrousel d'images -->
+        <div class="col-md-6">
+            <div id="product-carousel" class="carousel slide mt-3" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="espace admin/image_prod/<?php echo $row['image_produit1']; ?>" class="d-block w-100" alt="<?php echo $row['nom_produit']; ?>">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="espace admin/image_prod/<?php echo $row['image_produit2']; ?>" class="d-block w-100" alt="<?php echo $row['nom_produit']; ?>">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="espace admin/image_prod/<?php echo $row['image_produit3']; ?>" class="d-block w-100" alt="<?php echo $row['nom_produit']; ?>">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Détails du produit -->
+        <div class="col-md-6">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                <!-- Titre -->
+                <h2 class="mb-4 product-title"><?php echo $row['nom_produit']; ?></h2>
+                
+                <!-- Prix -->
+                <p class="mb-3 product-price"> $<?php echo $row['prix_produit']; ?></p>
+                
+                <!-- Description -->
+                <p class="lead product-description"><?php echo $row['description_produit']; ?></p>
+                
+                <!-- Phrase d'attraction -->
+                <p class="mb-4 product-attraction">Ajoutez une touche de fraîcheur à votre journée avec notre magnifique bouquet de fleurs. Commandez dès maintenant!</p>
+                
+                <!-- Bouton pour ajouter au panier -->
+                <form action="ajouter_panier.php" method="post">
+                    <input type="hidden" name="product_id" value="<?php echo $row['id_produit']; ?>">
+                    <button type="submit" class="btn btn-primary btn-lg">Ajouter au Panier</button>
+                </form>
+                <div style="margin-top: 10px;"></div>
+
+                <p class="mb-0" style="font-size: 14px; color: #007bff; font-weight: bold;"><i class="fas fa-check-circle"></i> Sur commande</p>
+
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
-    
+
+
+
+
 
 
 <!-- last child -->
@@ -133,5 +158,7 @@ ini_set('display_errors', 1);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
 </body>
 </html>

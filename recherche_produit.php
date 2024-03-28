@@ -55,7 +55,7 @@ ini_set('display_errors', 1);
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item ms-3">
-                            <a class="nav-link" href="di">Produit</a>
+                            <a class="nav-link" href="display_allprod.php">Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -79,11 +79,7 @@ ini_set('display_errors', 1);
         </nav>
     </div>
 
-    <div class="welcome-section" style="background-image: url(welcome.png);">
-        <h1>Bienvenue chez Butterfly</h1>
-        <p>Découvrez notre sélection de fleurs fraîches et de bouquets uniques pour toutes les occasions.</p>
-        <a href="#" class="btn btn-primary">Shop now</a>
-    </div>
+    
     <div class="prodrech">
     <h3>Produit</h3>
     <p>Communications is at the heart of e-commerce and cummunity</p>

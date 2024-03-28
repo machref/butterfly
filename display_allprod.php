@@ -57,7 +57,7 @@ ini_set('display_errors', 1);
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item ms-3">
-                            <a class="nav-link" href="../Buttefrly/display_produit/produits.php">Produit</a>
+                            <a class="nav-link" href="display_allprod.php">Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
