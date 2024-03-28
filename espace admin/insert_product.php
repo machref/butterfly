@@ -6,6 +6,8 @@ ini_set('display_errors', 1);
 if(isset($_POST['insert_product'])){
     $product_name = $_POST['nom_produit'];
     $product_description = $_POST['description'];
+    $product_description = mysqli_real_escape_string($conn, $product_description);
+
     $product_keyword = $_POST['productkeyword'];
     $product_categorie = $_POST['categorie'];
     $product_prix = $_POST['prix'];
@@ -46,7 +48,7 @@ if(isset($_POST['insert_product'])){
         if($result_query) {
             echo "<script>alert('Produit ajouté avec succès.')</script>";
         } else {
-            echo "<script>alert('Erreur lors de l'ajout du produit.')</script>";
+            echo "<script>alert('Erreur lors de l' . 'ajout du produit.')</script>";
         }
     }
 }

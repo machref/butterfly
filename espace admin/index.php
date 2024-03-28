@@ -45,7 +45,7 @@
                     <a href="#">
                         <img src="../Blue Minimalist Ramadan Kareem Instagram Post (1).png" alt="" class="adminimg">
                     </a>
-                    <p class="text-center">Admin name</p>
+                    <p class="text-center">Admin name hello</p>
                 </div>
                 <div class="admin-links">
                     <button><a href="insert_product.php" class="nav-link">Insert Product</a></button>

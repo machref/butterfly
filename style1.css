@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.logo{
+    width:5%;
+    height: 7%;
+}
+.btn-outline-success {
+    color: #ff6600 !important; /* Couleur du texte */
+    border-color: #ff6600 !important; /* Couleur de la bordure */
+}
+
+.btn-outline-success:hover {
+    background-color: transparent !important; /* Fond transparent au survol */
+}
+/* barre de recherche */
+.prodrech {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+.prodrech h3 {
+    color: #ff6600; /* Couleur du titre */
+}
+
+.prodrech p {
+    text-align: center;
+    color: #6c757d; /* Couleur du texte */
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+.prodrech .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Couleur de fond de la zone de recherche */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.prodrech .form .form-control {
+    flex: 1; /* Pour que l'élément s'étende autant que possible */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 10px; /* Espacement interne */
+    margin-right: 10px; /* Espacement à droite */
+}
+
+.prodrech .form .btnsubmit {
+    background-color: #ff6600; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement interne */
+    cursor: pointer; /* Curseur pointeur */
+}
+
+.prodrech .form .btnsubmit:hover {
+    background-color: #ff8533; /* Couleur de fond au survol */
+}
+/* Style de la section d'accueil */
+.navbar-nav .nav-link {
+    color: #333 !important; /* Couleur du texte des liens de la barre de navigation */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff6600 !important; /* Couleur du texte des liens au survol */
+}
+
+.navbar-nav .nav-link i {
+    margin-right: 5px; /* Ajoute un espace entre l'icône et le texte */
+}
+
+.navbar-collapse {
+    justify-content: flex-end; /* Alignement des éléments de la barre de navigation à droite */
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Déplace les éléments à droite */
+    
+}
+.btn-outline-success:hover {
+    background-color: transparent !important;
+    color: #ff6600!important;
+}
+/* Style de la section d'accueil */
+
+.welcome-section {
+    
+    background-size: cover;
+    background-position: center;
+    height: 700px; /* Ajustez la hauteur selon vos besoins */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.welcome-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.welcome-section .btn-primary {
+    background-color: #ff6600;
+    border-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.welcome-section .btn-primary:hover {
+    background-color: #ff4d00;
+    border-color: #ff4d00;
+}
+
+.welcome-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    margin-bottom: 40px; /* Ajoute un espacement après la description */
+}
+/* barre de recherche */
+
+h3 {
+    font-size: 90;
+    text-align: center;
+    margin-top: 50px; /* Marge en haut */
+    color: #ff6600; /* Couleur du texte */
+}
+footer{
+    text-align: center;
+}
+/*card image
+.card-img-top{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}*/
+/*sidenav style */
+.col-md-2{
+    background-color:transparent ;
+}
+.card {
+    border: 1px solid #ced4da; /* Bordure grise */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: box-shadow 0.3s ease; /* Transition douce de l'ombre */
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+  }
+  
+  .card-img-top {
+    height: 200px; /* Hauteur de l'image */
+    object-fit: cover; /* Ajustement de la taille de l'image */
+    border-top-left-radius: 10px; /* Coins arrondis uniquement pour le coin supérieur gauche */
+    border-top-right-radius: 10px; /* Coins arrondis uniquement pour le coin supérieur droit */
+  }
+  
+  .card-body {
+    padding: 20px; /* Espacement interne */
+  }
+  
+  .card-title {
+    font-size: 18px; /* Taille du titre */
+    font-weight: bold; /* Police en gras */
+  }
+  
+  .card-text {
+    font-size: 16px; /* Taille du texte */
+  }
+  
+  .btn {
+    margin-top: 10px; /* Espacement entre le texte et les boutons */
+  }
+
+  

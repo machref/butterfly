@@ -55,7 +55,7 @@ ini_set('display_errors', 1);
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item ms-3">
-                            <a class="nav-link" href="display_allprod.php">Produit</a>
+                            <a class="nav-link" href="di">Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -88,10 +88,11 @@ ini_set('display_errors', 1);
     <h3>Produit</h3>
     <p>Communications is at the heart of e-commerce and cummunity</p>
     <div class="container mx-auto text-center">
-        <form class="d-flex form" role="search" method="get" action="recherche_produit.php">
-            <input class="form-control me-2" type="rechercher" placeholder="Rechercher" aria-label="Rechercher" name="rechercher">
-            <input class="btnsubmit" type="submit" value="Rechercher" name="recherche_data_prod"></input>
-        </form>
+    <form class="d-flex form" role="search" method="get" action="recherche_produit.php">
+    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher" name="rechercher">
+    <input class="btnsubmit" type="submit" value="Rechercher" name="recherche_data_prod">
+</form>
+
     </div>
 </div>
 </div>
@@ -116,7 +117,7 @@ ini_set('display_errors', 1);
       if(isset($_GET['categorie'])){
         get_unique_categorie();
     } else {
-        getproducts();
+        product_recherche();
     }
       ?>
      

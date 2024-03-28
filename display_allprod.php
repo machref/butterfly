@@ -22,6 +22,8 @@ ini_set('display_errors', 1);
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH
      " crossorigin="anonymous">
      <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="paginationstyle.css">
+
 
     
 <!--Font awesom link !-->
@@ -55,7 +57,7 @@ ini_set('display_errors', 1);
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item ms-3">
-                            <a class="nav-link" href="display_allprod.php">Produit</a>
+                            <a class="nav-link" href="../Buttefrly/display_produit/produits.php">Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -79,11 +81,7 @@ ini_set('display_errors', 1);
         </nav>
     </div>
 
-    <div class="welcome-section" style="background-image: url(welcome.png);">
-        <h1>Bienvenue chez Butterfly</h1>
-        <p>Découvrez notre sélection de fleurs fraîches et de bouquets uniques pour toutes les occasions.</p>
-        <a href="#" class="btn btn-primary">Shop now</a>
-    </div>
+   
     <div class="prodrech">
     <h3>Produit</h3>
     <p>Communications is at the heart of e-commerce and cummunity</p>
@@ -116,7 +114,7 @@ ini_set('display_errors', 1);
       if(isset($_GET['categorie'])){
         get_unique_categorie();
     } else {
-        getproducts();
+        displayProductsPerPage($conn);
     }
       ?>
      

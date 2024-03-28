@@ -1,0 +1,10 @@
+.btn-outline-custom {
+    color: #ff6600;
+    border-color: #ff6600;
+}
+
+.btn-outline-custom:hover {
+    color: #fff;
+    background-color: #ff6600;
+    border-color: #ff6600;
+}
