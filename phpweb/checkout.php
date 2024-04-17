@@ -3,8 +3,8 @@
 
 use LDAP\Result;
 
-include('../Buttefrly/include/connect.php');
-include('../Buttefrly/functions/common_function.php');
+include('../include/connect.php');
+include('../functions/common_function.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -15,9 +15,9 @@ ini_set('display_errors', 1);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Butterfly</title>
+    <title> checkout-page </title>
     <!-- Bootsrap link !-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    <link href="https://cdn.jsdelivr.net/npm/bootstr ap@5.3.3/dist/css/bootstrap.min.css"
      rel="stylesheet"
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH
      " crossorigin="anonymous">
@@ -51,9 +51,6 @@ ini_set('display_errors', 1);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                        <a class="nav-link" href="connexion.php"> Login </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
@@ -75,27 +72,27 @@ ini_set('display_errors', 1);
                                 <i class="fas fa-shopping-cart"></i><sup style="color: red;"><?php cart_product_number(); ?></sup>
                             </a>
                         </li>
-                        
                     </ul>
                     
                 </div>
             </div>
         </nav>
     </div>
-    <?php
-    cart();
-    ?>
-
     
+
+    <div class="welcome-section" style="background-image: url(welcome.png);">
+        <h1>Bienvenue chez Butterfly</h1>
+        <p>Découvrez notre sélection de fleurs fraîches et de bouquets uniques pour toutes les occasions.</p>
+        <a href="#" class="btn btn-primary">Shop now</a>
+    </div>
     <div class="prodrech">
     <h3>Produit</h3>
     <p>Communications is at the heart of e-commerce and cummunity</p>
     <div class="container mx-auto text-center">
-    <form class="d-flex form" role="search" method="get" action="recherche_produit.php">
-    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher" name="rechercher">
-    <input class="btnsubmit" type="submit" value="Rechercher" name="recherche_data_prod">
-</form>
-
+        <form class="d-flex form" role="search" method="get" action="recherche_produit.php">
+            <input class="form-control me-2" type="rechercher" placeholder="Rechercher" aria-label="Rechercher" name="rechercher">
+            <input class="btnsubmit" type="submit" value="Rechercher" name="recherche_data_prod"></input>
+        </form>
     </div>
 </div>
 </div>
@@ -106,24 +103,21 @@ ini_set('display_errors', 1);
         <li class="nav-item">
             <a href="#" class="nav-link text-dark"><h4 style="color: #ff6600; font-weight: bold;">Catégories</h4></a>
         </li>
-        <?php
-        getcategorie();
-        ?>
+    
     </ul>
 </div>
 
   
   <div class="col-md-10">
-    <!-- Products -->
-    <div class="row">
-      <?php
-      if(isset($_GET['categorie'])){
-        get_unique_categorie();
-    } else {
-        product_recherche();
-    }
-      ?>
-     
+  <div class="row">
+    
+     <?php
+if(!isset($_SESSION['username'])){
+include 'C:\xampp\htdocs\phpweb\connexion.php';
+}else {
+include('paiement.php');
+}
+?>
     </div>
   </div>
 </div>
@@ -133,7 +127,8 @@ ini_set('display_errors', 1);
 
 
 <!-- last child -->
-<footer><p>All rights reserved © Designed by Mejri Achref -2024</p></footer>
+<?php
+include("../includes/footer.php") ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"></script>

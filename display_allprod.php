@@ -37,6 +37,7 @@ ini_set('display_errors', 1);
 
 <body>
    <!-- Navbar -->
+   
    <div class="container-fluid p-0">
         <!-- first child -->
         <nav class="navbar navbar-expand-lg" style="background-color: #f8f9fa;">
@@ -70,8 +71,8 @@ ini_set('display_errors', 1);
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-shopping-cart"></i><sup style="color: red;">1</sup>
+                            <a class="nav-link" href="cart_details.php">
+                                <i class="fas fa-shopping-cart"></i><sup style="color: red;"><?php cart_product_number(); ?></sup>
                             </a>
                         </li>
                     </ul>
@@ -80,6 +81,9 @@ ini_set('display_errors', 1);
             </div>
         </nav>
     </div>
+    <?php
+    cart();
+    ?>
 
    
     <div class="prodrech">

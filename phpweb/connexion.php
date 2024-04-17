@@ -1,10 +1,9 @@
-<!-- Connect file -->
 <?php
 
 use LDAP\Result;
 
-include('../Buttefrly/include/connect.php');
-include('../Buttefrly/functions/common_function.php');
+include('../include/connect.php');
+include('../functions/common_function.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -51,11 +50,8 @@ ini_set('display_errors', 1);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                        <a class="nav-link" href="connexion.php"> Login </a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                            <a class="nav-link active" aria-current="page" href="..\index.php">Accueil</a>
                         </li>
                         <li class="nav-item ms-3">
                             <a class="nav-link" href="display_allprod.php">Produit</a>
@@ -71,69 +67,57 @@ ini_set('display_errors', 1);
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart_details.php">
-                                <i class="fas fa-shopping-cart"></i><sup style="color: red;"><?php cart_product_number(); ?></sup>
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-shopping-cart"></i><sup style="color: red;">1</sup>
                             </a>
                         </li>
-                        
                     </ul>
                     
                 </div>
             </div>
         </nav>
     </div>
+    <div class="container py-2">
     <?php
-    cart();
-    ?>
-
-    
-    <div class="prodrech">
-    <h3>Produit</h3>
-    <p>Communications is at the heart of e-commerce and cummunity</p>
-    <div class="container mx-auto text-center">
-    <form class="d-flex form" role="search" method="get" action="recherche_produit.php">
-    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher" name="rechercher">
-    <input class="btnsubmit" type="submit" value="Rechercher" name="recherche_data_prod">
-</form>
-
-    </div>
-</div>
-</div>
-<div class="row px-3">
-  <div class="col-md-2">
-    <!-- Sidenav -->
-    <ul class="navbar-nav me-auto text-center" style="background-color: #f8f9fa; padding: 10px; border-radius: 10px;">
-        <li class="nav-item">
-            <a href="#" class="nav-link text-dark"><h4 style="color: #ff6600; font-weight: bold;">Catégories</h4></a>
-        </li>
-        <?php
-        getcategorie();
+    if(isset($_GET['connecter'])) {
+        $login=$_GET['login'];
+        $password=$_GET['password'];
+        if(!empty($login) && !empty($password)){
+            echo" Bienvenue $login";
+       } else{
         ?>
-    </ul>
-</div>
-
-  
-  <div class="col-md-10">
-    <!-- Products -->
-    <div class="row">
-      <?php
-      if(isset($_GET['categorie'])){
-        get_unique_categorie();
-    } else {
-        product_recherche();
-    }
-      ?>
-     
+        <div class="alert alert-danger" role="alert">
+     Tapez votre login et password !
     </div>
-  </div>
-</div>
-
+    <?php
+       }
+    }
+    ?>
+    
 
     
 
+<div class="col-12 p-5">
+    <h1 class="text-center"> LOGIN </h1>
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">login</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your login with anyone else.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label"> password </label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <button type="submit" class="btn btn-primary"> login </button>
+  <p class="fw-bold mt-2 pt-1"> Don't have an account? <a href="registre.php" class="text-danger"> Register </a> </p>
+</form>
+</div>
 
 <!-- last child -->
-<footer><p>All rights reserved © Designed by Mejri Achref -2024</p></footer>
+<footer></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"></script>

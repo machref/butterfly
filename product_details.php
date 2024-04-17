@@ -24,7 +24,7 @@ ini_set('display_errors', 1);
      <link rel="stylesheet" href="style1.css">
      <link rel="stylesheet" href="product_details.css">
 
-
+ 
 
     
 <!--Font awesom link !-->
@@ -70,9 +70,12 @@ ini_set('display_errors', 1);
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-shopping-cart"></i><sup style="color: red;">1</sup>
+                            <a class="nav-link" href="cart_details.php">
+                                <i class="fas fa-shopping-cart"></i><sup style="color: red;"><?php cart_product_number(); ?></sup>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="connexion.php"> Login </a>
                         </li>
                     </ul>
                     
@@ -82,6 +85,9 @@ ini_set('display_errors', 1);
     </div>
 </div>
 </div>
+<?php
+    cart();
+    ?>
 <?php
 if(isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];

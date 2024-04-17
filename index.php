@@ -63,13 +63,13 @@ ini_set('display_errors', 1);
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="phpweb\connexion.php">
                                 <i class="fas fa-user"></i> Please Sign Up
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-shopping-cart"></i><sup style="color: red;">1</sup>
+                            <a class="nav-link" href="cart_details.php">
+                                <i class="fas fa-shopping-cart"></i><sup style="color: red;"><?php cart_product_number(); ?></sup>
                             </a>
                         </li>
                     </ul>
@@ -78,6 +78,9 @@ ini_set('display_errors', 1);
             </div>
         </nav>
     </div>
+    <?php
+    cart();
+    ?>
 
     <div class="welcome-section" style="background-image: url(welcome.png);">
         <h1>Bienvenue chez Butterfly</h1>
@@ -117,6 +120,8 @@ ini_set('display_errors', 1);
         get_unique_categorie();
     } else {
         getproducts();
+        $ipAddress = getIpAddress();
+echo "Your IP address is: $ipAddress";
     }
       ?>
      

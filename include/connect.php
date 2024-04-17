@@ -1,5 +1,6 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'butterfly');
 if (!$conn) {
-    die('Connection failed: ' . mysqli_connect_error());
+    die(mysqli_error($con));
 }
+?>
